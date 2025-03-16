@@ -6,7 +6,7 @@ export interface HardwareSchema {
 	Length?: number;
 	Inactive?: number[]
 	Mode?: string
-	DisplayFormat?: {
+	DisplayFormat: {
 		DispWidth: number
 		DispHeight: number
 		DispStack: number
