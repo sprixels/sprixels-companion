@@ -1,5 +1,6 @@
 import classes from './Sprixels.module.css';
-import { Grid, Box, Center, Select, Button, Notification  } from '@mantine/core';
+import { Grid, Box, Center, Select, Button, Group, Text } from '@mantine/core';
+import { notifications } from '@mantine/notifications';
 import { useState } from 'react';
 import { useHardwareStore } from '@/store/hardwareStore';
 import {HardwareSchema} from '@/Schemas/SchemaHardware'
@@ -16,42 +17,47 @@ const listData: SelectItem[] = [];
 for (var hw of HARDWARES){
 	listData.push({value: hw.ID.toString(), label: hw.Label})
 }
-console.log(listData)
 
 
 export function HardwareAdd() {
 	const {addHardware} = useHardwareStore()
-	const [hwOption, setHWOption] = useState<string | null>('');
-	
+	const [hwOption, setHWOption] = useState<string | null>('')
+
 	function addItemToHW(){
 		let target =  HARDWARES.find(item => {
 			return item.ID.toString() == hwOption
-	 }) as HardwareSchema
-	 console.log(target)
-	 addHardware(target);
+	 	}) as HardwareSchema
+
+	 	if (!addHardware(target)){
+			notifications.show({
+				title: 'Error - Failed to add frame',
+				message: 'A frame already exists in the hardware list. Remove the existing frame to replace.',
+				color: 'red',
+				withBorder: true,
+				autoClose: 5000,
+			});
+	 	}
 	}
 	
-	let Notify = <></>;
-	if(!hwOption){
-		Notify = <Notification withBorder title="We notify you that">
-			You are now obligated to give a star to Mantine project on GitHub
-		</Notification>;
-	}
 
   return (
-		<>			
+		<Group grow preventGrowOverflow={false}>			
 			<Select
 				label="Select Hardware to Add"
 				placeholder="--Select--"
 				onChange={setHWOption}
+				size="lg"
+				mb=""
+				mt="md"
 				data={listData}
 			/>
-			<Button variant="default" onClick={(event) => addItemToHW()}>
-        Add
-      </Button>
-			{Notify}
-		
-		</>
+			<Box>
+				<Text size="lg">&nbsp;</Text>
+				<Button variant="filled" color="orange" size="md" mt="md" onClick={(event) => addItemToHW()}>
+					Add Hardware
+				</Button>		
+			</Box>
+		</Group>
 	)
 }
 

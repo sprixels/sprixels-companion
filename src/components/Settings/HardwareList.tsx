@@ -15,7 +15,7 @@ export const HARDWARES = [
 	},
 	{
 		"ID"	: 2,
-		"Label" : "LightFrame Medium Vertical",
+		"Label" : "LightFrame Med Vertical",
 		"HWType": "FrameStrip",
 		"HWPins": [2],
 		"Length": 47,
@@ -29,7 +29,7 @@ export const HARDWARES = [
 	},
 	{
 		"ID"	: 3,
-		"Label" : "LightFrame Medium Horizontal",
+		"Label" : "LightFrame Med Horizontal",
 		"HWType": "FrameStrip",
 		"HWPins": [2],
 		"Length": 47,
@@ -53,6 +53,63 @@ export const HARDWARES = [
 			"DispWidth": 7,
 			"DispHeight": 7,
 			"DispStack": 2
+		}
+	},
+	{
+		"ID"	: 5,
+		"Label" : "LCD 1.8\" 160x128",
+		"HWType": "LCD",
+		"HWPins": [2,3,4,5,6,7],
+		"Length": 20480,
+		"Inactive": [],
+		"Mode": "RRRRRGGGGGGBBBBB",
+		"DisplayFormat":{
+			"DispWidth": 160,
+			"DispHeight": 128,
+			"DispStack": 1,
+			"Orientation": 0
+		}
+	},
+	{
+		"ID"	: 6,
+		"Label" : "Matrix 8x8",
+		"HWType": "Grid",
+		"HWPins": [3],
+		"Length": 64,
+		"Inactive": [],
+		"Mode": "GRB",
+		"DisplayFormat":{
+			"DispWidth": 8,
+			"DispHeight": 8,
+			"DispStack": 1
+		}
+	},
+	{
+		"ID"	: 7,
+		"Label" : "Matrix 16x16",
+		"HWType": "Grid",
+		"HWPins": [3],
+		"Length": 256,
+		"Inactive": [],
+		"Mode": "GRB",
+		"DisplayFormat":{
+			"DispWidth": 16,
+			"DispHeight": 16,
+			"DispStack": 1
+		}
+	},
+	{
+		"ID"	: 8,
+		"Label" : "Aux 8 Strip",
+		"HWType": "Strip",
+		"HWPins": [4],
+		"Length": 8,
+		"Inactive": [],
+		"Mode": "GRB",
+		"DisplayFormat":{
+			"DispWidth": 8,
+			"DispHeight": 1,
+			"DispStack": 1
 		}
 	}
 ]

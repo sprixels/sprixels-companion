@@ -5,6 +5,9 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   plugins: [react(), tsconfigPaths(),tailwindcss(),],
+	optimizeDeps: {
+    exclude: ['mantine_notifications']
+  },
   test: {
     globals: true,
     environment: 'jsdom',
